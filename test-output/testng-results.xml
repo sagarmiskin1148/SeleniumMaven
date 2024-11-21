@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="0" failed="0" skipped="1">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-11-20T13:29:41 IST" name="Default suite" finished-at="2024-11-20T13:29:41 IST" duration-ms="50">
+    <groups>
+    </groups>
+    <test started-at="2024-11-20T13:29:41 IST" name="Default test" finished-at="2024-11-20T13:29:41 IST" duration-ms="50">
+      <class name="datadrivenTest.HrmDataDrivenFramework">
+        <test-method signature="loginTest(java.lang.String,java.lang.String)[pri:0, instance:datadrivenTest.HrmDataDrivenFramework@7ce3cb8e]" started-at="2024-11-20T13:29:41 IST" name="loginTest" finished-at="2024-11-20T13:29:41 IST" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Error">
+            <message>
+              <![CDATA[Unresolved compilation problems: 
+The import org.apache cannot be resolved
+XSSFWorkbook cannot be resolved to a type
+XSSFWorkbook cannot be resolved to a type
+XSSFWorkbook cannot be resolved to a type
+XSSFWorkbook cannot be resolved to a type
+XSSFWorkbook cannot be resolved to a type
+XSSFWorkbook cannot be resolved to a type
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Error: Unresolved compilation problems: 
+The import org.apache cannot be resolved
+XSSFWorkbook cannot be resolved to a type
+XSSFWorkbook cannot be resolved to a type
+XSSFWorkbook cannot be resolved to a type
+XSSFWorkbook cannot be resolved to a type
+XSSFWorkbook cannot be resolved to a type
+XSSFWorkbook cannot be resolved to a type
+
+at datadrivenTest.CustomData.<init>(CustomData.java:8)
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at java.base/java.lang.reflect.ReflectAccess.newInstance(ReflectAccess.java:128)
+at java.base/jdk.internal.reflect.ReflectionFactory.newInstance(ReflectionFactory.java:304)
+at java.base/java.lang.Class.newInstance(Class.java:725)
+at org.testng.internal.InstanceCreator.newInstance(InstanceCreator.java:30)
+at org.testng.internal.objects.SimpleObjectDispenser.dispense(SimpleObjectDispenser.java:40)
+at org.testng.internal.objects.GuiceBasedObjectDispenser.dispense(GuiceBasedObjectDispenser.java:30)
+at org.testng.internal.Parameters.findDataProvider(Parameters.java:651)
+at org.testng.internal.Parameters.findDataProvider(Parameters.java:553)
+at org.testng.internal.Parameters.handleParameters(Parameters.java:772)
+at org.testng.internal.Parameters.handleParameters(Parameters.java:740)
+at org.testng.internal.ParameterHandler.handleParameters(ParameterHandler.java:59)
+at org.testng.internal.ParameterHandler.createParameters(ParameterHandler.java:38)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:791)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Error -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginTest -->
+      </class> <!-- datadrivenTest.HrmDataDrivenFramework -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

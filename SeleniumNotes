@@ -1,0 +1,830 @@
+Selenium WebDriver:
+=====================
+Selenium WebDriver is an interface 
+Selenium WebDriver is an API for WebUI automation testing
+
+=====================================================
+Setup
+=========
+1.Java Project
+===============
+1.Download selenium.jar(client library) file from www.selenium.dev
+2.create a new project in eclipse
+3.add library to project
+right click on project--->build path---->configure build path-->
+libraries--->class path--->add external jar
+
+
+2.Maven Project
+======================================================
+Test Case
+==============
+validate google title should be Google
+------------------------------
+step1: open browser
+step2: open google application
+step3: capture current title of application
+step4: compare it to expected title(Google)
+step5: print the result and close the browser
+
+=================================================
+18-02-2024
+Maven
+=========
+Maven is build management and project management tool
+
+pom.xml
+==========
+This is configuration file for maven project
+Project object model
+
+<project>
+
+<dependencies>
+<dependency> Java -selenium</dependency>
+</dependencies>
+
+
+</project>
+
+
+
+dependency
+==============
+It is a library for that framework
+
+Maven support two repository
+=============================
+1.Local repository: user/m2 floder
+2.shared/remote repository mvnreporsitory.com
+================================================
+1.simple maven project
+2.maven with archetype
+==================================================
+WebDriver commands
+==================
+Browser interactions commands
+------------------------------
+1.get(url): open application
+2.getTitle(): get the current title of the page
+3.getCurrentUrl(): get the current url of the page
+4.getPageSource(): get the page source code
+5.close(): close the active page of browser
+6.quit() : quit close all the pages open by selenium
+
+Sample Sites
+============
+https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+https://automationplayground.com/crm/
+https://tutorialsninja.com/demo/index.php?
+https://www.saucedemo.com/
+
+
+How to maximize/minimize browser window
+==========================================
+driver.manage().window().maximize();
+
+Browser Navigations commands
+==============================
+Selenium support Navigation interface
+
+to(url):to navigate to another application 
+----------------
+driver.navigate().to(url)
+
+back()
+--------------
+driver.navigate().back()
+
+forward()
+--------------
+driver.navigate().forward()
+
+refresh()
+-----------
+driver.navigate().refresh()
+
+================================================
+How to interact any webElement
+-------------------------------
+WebElement is any GUI control-textbox,button,link,dropdown
+
+Selenium provides one interface WebElement
+----------------------------------------------
+1.Selenium need to identify WebElement
+2.Seleium performs action on webElement
+
+1.Selenium need to identify WebElement
+----------------------------------------
+Selenium identify WebElement using Locators
+-----------------------------------------------
+Locator is  address of that webelement from webpage
+
+Selenium support 8 locators
+=========================
+1.By id (primary)
+2.By name
+3.By className
+4.By linkText
+5.By partialLinkText
+6.By tagName
+
+Dynamic locators
+======================
+7.By cssSelector
+8.By Xpath
+
+=======================
+Basics HTML
+=================
+<input     id="abd"   name="gggg"  className="uuu">
+tagname   attribute="value"
+
+========================
+first get the address of webElement using By class
+
+then pass address to webDriver methods
+======================================
+1.findElement()
+-------------
+-help to identify only one single webelement
+-return type is WebElement object
+-if element not found it will throw exception NoSuchElementException
+
+2.findElements()
+---------------------
+-findElements() help to identify multiple webelements
+-It returns List<WebElement>
+-If any element not found this never throws exception
+it returns empty[]
+
+==========================================
+WebElement validation commands
+========================
+1.isDisplayed()
+2.isEnabled()
+3.isSelected()-checkbox,radio button dropdown
+==============================
+WebElement actions
+======================
+textbox,searchbox--->send some data-->sendKeys()
+To clear the data from input box--->clear()
+link,button,checkbox,radion button--->click()
+
+============================================
+24-02-2024
+=============
+Locators
+==========
+1.By className
+---------------
+<input type="submit" value="Login" class="btn btn-primary">
+tagname										class1  class2
+
+org.openqa.selenium.InvalidSelectorException:
+ Compound class names not permitted
+ 
+ 
+ verify locator
+ ===============
+ using browser
+ 
+ Inside DOM ctrl+f =finder
+ 
+ For current Ninja solution we use CssSelector
+ tagname with class
+ ====================
+ Syntax:
+ -------------
+ tagname.classname
+ 
+ input.btn.btn-primary
+ 
+ WebElement Commands
+ =====================
+ 1.getAttribute(attribute name)
+ ---------------------
+ To get the attribute value use this cmd
+ 
+ 2.getText()
+ -----------------
+ To get the inner text of html/css
+ to get the text of any webelement 
+ 
+ =========================
+ Link Automation
+ ==================
+ <a id="SignIn" href="login.html">Sign In</a>
+ <a>	Visible text(LinkTExt)		</a>	
+ 
+ Two Locators to automate link
+ ----------------------------
+ 1.By linkText
+ ---------------
+ Full match
+ 
+ driver.findElement(By.linkText("Sign In")).click();
+ 
+ 2.By partialLinkText
+ ------------------------
+ partail text match
+  driver.findElement(By.partailLinkText("In")).click()
+ ===========================================================
+ By tagName
+ ===============
+ Number of inputs
+ Number of images
+ Number of links
+ 
+ ======================================
+ Synchronization in selenium
+ ===============================
+ What is Synchronization issue?
+ ------------------------------
+ time mapping issue between application and tool
+ 
+ Selenium support two dynamic wait
+ ===================================
+ 1.Implicit Wait
+ -----------------
+ Global wait applicable for entire script
+ 
+ driver.manage().timeouts().implecitlyWait(Duration.ofSecond(10))
+ 
+ 
+ 2.Explicit wait
+ -----------------------
+ It is applicable for single webElement
+ 
+ As per condition we can apply wait
+ 
+ 1.WebDriverWait class
+ 2.FluentWait class
+ 
+ WebDriverWait(c) extends FluentWait(c) implements Wait(I)
+ 
+ 
+ =====================================================
+ Dynamic Locators
+ ==================
+ 1.By cssSelector
+ 2.By xpath
+ 
+ What is Css
+ -------------
+ Cascaded style sheet is a programming language which helps to provide
+ styles to webelement
+ 
+ What is cssSelector
+ --------------------
+ cssSelector is a locator in selenium to identify element based on css
+ Ajax type element
+ 
+ CssSelector can travel only in forward directions
+ 
+ #user-name
+ 
+techniques
+=============
+1.tagname with id
+------------------
+syntax:
+-------------
+tagname#id
+
+<input type="text" id="user-name" name="user-name" placeholder="Username" >
+
+input#user-name
+
+
+2.tagname with attribute(any)
+------------------------
+syntax:
+============
+tagname[attribute name='value']
+
+<input type="password">
+
+input[type='password']
+
+3.tagname with class name
+----------------------------
+Syntax:
+=========
+tagname.classname
+
+<input type="submit" class="btn_action" id="login-button" value="LOGIN" wfd-id="id2">
+
+input.btn_action-------1 of 1
+
+4.tagname with id,class and attribute
+-----------------------------------------
+Syntax
+============
+tagname#id.classname[attribute='value']
+<input type="submit" class="btn_action" id="login-button" value="LOGIN" wfd-id="id2">
+
+input#login-button.btn_action[type='submit']----1 of 1
+
+or
+
+input.btn_action[type='submit']----1 of 1
+
+
+=============================================
+
+Functions/Methods in Css
+=================
+<input class="form_input"  id="user-name" name="user-name" placeholder="Username"  >
+1. ^starts With(prefix value) 
+---------------------
+Syntax:
+========
+tagname[attribute ^='prefix value']
+
+input[placeholder ^='User']
+
+====================================
+2. $ends With(suffix value)  
+
+---------------------
+Syntax:
+========
+tagname[attribute $='suffix value']
+
+input[placeholder $='name']
+
+
+
+3.*contains(substring/partail match) 
+---------------------
+Syntax:
+========
+tagname[attribute *='partail string']
+
+input[placeholder *='name']
+===============================================
+
+What is Xpath?
+==================
+xpath is path of webelement from html/xml page
+xpath identify element from DOM(document object model)
+========================
+html DOm
+===========
+<html>--------root 
+<head>
+<title>apptitle<title>
+</head>
+
+<body>
+<input type="text" value="username"/>
+<a href="">linktext</a>-------------------element
+<div>
+<ul>unorder list
+</body>
+
+</html>
+==================================
+Xpath Types
+=============
+1.Absolute xpath(Full xpath)
+-----------------------------
+- absolute xpath identify element from root node
+- starts with '/'
+
+/html/body/section/div/div/div/div/form/div[1]/input
+
+2.Relative xpath(partial Xpath)
+--------------------------------
+- Relative xpath identify element from the relative property
+- starts with '//'
+
+//*[@id="email-id"]
+
+* all
+
+Syntax:
+============
+//tagname[@attributename='value']
+
+===============================================
+Xpath with operators
+=====================
+1.and
+======
+Syntax:
+=========
+//tagname[@attribute1='value' and @attribute2='value']
+2.or
+=====
+Syntax:
+=========
+//tagname[@attribute1='value' or @attribute2='value']
+
+xpath with index and position()
+==================================
+
+Syntax:
+========
+(xpath)[index number]
+
+(xpath)[position()=index]
+
+===========================================
+Methods for xpath
+===================
+text()
+=========
+Syntax:
+=========
+//tagname[text()='visibile text']
+
+(//a[text()='Best Sellers'])[1]-----1 of 1
+--------------------------------------
+normalize-space()
+==================
+ignore white space before and after text and captures that visible text
+
+Syntax:
+=======
+//tagname[normalize-space()='text']
+
+contains()
+==============
+Syntax:
+============
+//tagname[contains(@attribute,'partial value')]
+
+or
+
+//tagname[contains(text(),'partial text')]
+
+starts-with(prefix)
+=================
+Syntax:
+============
+//tagname[starts-with(@attribute,'prefix value')]
+
+or
+
+//tagname[starts-with(text(),'prefix text')]
+=======================================================
+Xpath Axies
+=============
+<tbody>--------------Grand parent Ancestor for John
+<tr>------------------->parent for John
+         <td>4</td>-------------preceding sibling
+
+          <td>John</td>----------Element
+
+          <td>Robinson</td>---------following sibling
+
+          <td>jr5527</td>
+ 
+         <td>
+              <a href="user.html"><i class="icon-pencil"></i></a>
+              <a role="button" href="#myModal" data-toggle="modal"><i class="icon-remove"></i></a>
+          </td>
+
+        </tr>
+</tbody>    
+        
+
+1.Ancestor
+=============
+//tagname[@attribute='value']//ancestor::tagname of ancestor
+
+Identify Ancestor tagname for John
+==================================
+//td[text()='John']//ancestor::tbody----------1 of 1
+
+2.parent
+============
+//tagname[@attribute='value']//parent::tagname of parent
+
+Identify parent tagname for John
+==================================
+//td[text()='John']//parent::tr-------1 of 1
+
+3.child
+==========
+//tagname[@attribute='value']//child::tagname of child
+
+Identify all child nodes/tagname for row 3
+===============================================
+//tbody//tr[3]//child::td-----------5 childs
+
+4.following
+=============
+//tagname[@attribute='value']//following::tagname of following node
+
+Identify all following tag td for John
+=========================================
+//td[text()='John']//following::td----------13 nodes with td
+
+//td[text()='John']//following::tr--------------2 rows available
+
+5.preceding
+===========
+//tagname[@attribute='value']//preceding::tagname of preceding node
+
+Identify all preceding tag td for John
+======================================
+//td[text()='John']//preceding::td
+
+6.following-sibling
+======================
+//tagname[@attribute='value']//following-sibling::tagname of sibling
+
+Identify following-sibling for john
+=======================================
+//td[text()='John']//following-sibling::td---------3
+
+7.preceding-sibling
+=========================
+//tagname[@attribute='value']//preceding-sibling::tagname of sibling
+
+Identify preceding sibling for john
+=======================================
+//td[text()='John']//preceding-sibling::td----------1
+==============================================
+Xpath tool
+==============
+selectorsHub
+==================
+3-03-2024
+===============
+Drop down Automation
+--------------------
+1.Select tag based dropdown
+-----------------------------
+Select class
+-------------
+Select s1=new Select(locator of dropdown)
+
+single selection
+===============
+selectByIndex()
+selectByVisibleText()
+selectByValue()
+
+Is dropdown support multiple selection
+========================================
+isMultiple()
+
+To Test all options
+============================
+getOptions()
+
+=======================================
+2.Bootstrap drop down
+=====================
+xpath
+
+Capabilities
+================
+Capabilities are options that you can use to customize and configure a ChromeDriver session.
+
+browser specific classes
+======================
+Chorme===>ChromeOptons class
+Edge----->EdgeOptions class
+Firefox---->FirefoxOptions class
+
+To run test case in headless mode
+ChromeOptions options=new ChromeOptions();
+options.addArguments("--headless");
+		
+To disable notifications
+ChromeOptions options=new ChromeOptions();
+options.addArguments("--disable-notifications");
+
+===============================================================
+-------------------------------
+Alert Handling
+===============
+
+Automate any alert first switch the driver control from main page to alert window
+===================================================
+driver.switchTo().alert()
+
+Selenium provide Alert interface
+=====================================
+1.to get alert text
+-------------------------
+getText()
+
+2.To click on ok button
+---------------------------
+accept()
+
+3.To click on cancel button
+-------------------------------
+dismiss()
+
+4.for prompt type alert
+===========================
+sendKeys()
+
+
+FrameHandling
+==============
+One html document embedded into another html document
+
+
+MultipleWindow Handling
+==========================
+-To get parent window Id
+getWindowHandle()
+
+-To get all child window Id
+getWindowHandles()
+
+Selenium 4
+--------------
+newWindow()
+============
+Return type of newWindow() is WenDriver instance
+
+open any new tab/window
+==========================
+WebDriver tab=driver.switchTo().newWindow(WindowType.TAB);
+			tab.get("https://www.redbus.in");
+			
+WebDriver tab=driver.switchTo().newWindow(WindowType.WINDOW);
+tab.get("https://www.redbus.in");
+
+
+
+Actions class
+===================
+If you are doing one action use perform()
+If you are doing multiple actions then use build().perform()
+
+
+
+
+
+
+Right click and double click
+http://demo.guru99.com/test/simple_context_menu.html
+
+Mouse over
+https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_onmouseover
+
+drag n drop
+http://jqueryui.com/droppable/#default
+
+Slider
+https://jqueryui.com/slider/
+
+Resizing
+https://jqueryui.com/resizable/
+
+Tooltip
+https://jqueryui.com/tooltip
+=========================================
+TestNG
+===========
+To execute test cases in sequence 
+(priority=1)
+
+To execute any test case multiple number of time
+invocationCount=3
+
+To setup execution timeout for test case 
+timeout=3000
+
+To provide dependency between test case
+dependOnMethod="MethodNAme"
+
+There is dependency between test and i want to run my dependent test in any condition
+alwaysRun=true
+
+Ignore test case from execution
+===================================
+1.enabled=false
+2.using xml file by excluding method
+for test case create testng.xml file 
+<method>
+<exclude name="testcase/>
+</method>
+
+
+testng.xml File
+=================
+This is configuration file for a project
+
+usages
+========
+1.Grouping execution
+
+2.Method execution
+
+3.Test data setup using parameter
+
+4.parallel testing
+
+5.listners
+
+6.To create testsuite(collection of test cases)
+
+
+How to run only fail test from suite
+=========================================
+goto test-output folder
+and open/run testng-failed.xml file
+
+
+===============================================
+9552671595
+
+Data Driven Testing
+========================
+Execute same set of actions with multiple set of data multiple time is called.
+
+In TestNG Datadriven Framework
+==================================
+1.Using array
+2.Using Apache POI library(excel file---Read)
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 	
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
